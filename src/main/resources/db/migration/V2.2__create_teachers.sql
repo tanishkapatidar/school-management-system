@@ -1,4 +1,4 @@
-Create Table IF NOT EXISTS ${flyway.defaultSchema}.teachers (
+Create Table IF NOT EXISTS bodhi.teachers (
     id character (255) NOT NULL,
     name character (255),
     address character (255),

@@ -37,9 +37,10 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.flywaydb/flyway-core
 	implementation 'org.flywaydb:flyway-core'
 
+
 	// https://mvnrepository.com/artifact/org.postgresql/postgresql
 	//implementation 'org.postgresql:postgresql:42.1.4'
-	runtimeOnly 'org.postgresql:postgresql:42.7.2'
+	runtimeOnly 'org.postgresql:postgresql:42.6.2'
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
