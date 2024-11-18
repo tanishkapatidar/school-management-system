@@ -1,5 +1,5 @@
 Create Table IF NOT EXISTS ${flyway.defaultSchema}.students (
-    id character (255),
+    id character (255) NOT NULL,
     name character (255),
     fathers_name character(255),
     mothers_name character(255),
@@ -10,3 +10,4 @@ Create Table IF NOT EXISTS ${flyway.defaultSchema}.students (
     email_id character (255),
     CONSTRAINT students_primary_key PRIMARY KEY (id)
 );
+
