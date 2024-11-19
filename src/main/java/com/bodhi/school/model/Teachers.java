@@ -1,5 +1,8 @@
 package com.bodhi.school.model;
 
+import lombok.Data;
+
+@Data
 public class Teachers {
     private String id;
     private String name;

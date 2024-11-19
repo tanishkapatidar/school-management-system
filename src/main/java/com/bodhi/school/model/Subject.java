@@ -1,5 +1,8 @@
 package com.bodhi.school.model;
 
+import lombok.Data;
+
+@Data
 public class Subject {
     private String id;
     private String sub_name;

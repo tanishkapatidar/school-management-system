@@ -1,7 +1,10 @@
 package com.bodhi.school.model;
 
+import lombok.Data;
+
 import java.util.Date;
 
+@Data
 public class Student {
     private String id;
     private String name;
