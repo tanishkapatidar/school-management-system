@@ -3,7 +3,7 @@ package com.bodhi.school.model;
 import lombok.Data;
 
 @Data
-public class Results {
+public class Result {
     private String id;
     private String student_id;
     private String exam_id;

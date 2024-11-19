@@ -7,7 +7,7 @@ public class Teachers {
     private String id;
     private String name;
     private String address;
-    private Integer contact_information;
+    private String contact;
     private String specialization;
     private String gender;
     private String email;
