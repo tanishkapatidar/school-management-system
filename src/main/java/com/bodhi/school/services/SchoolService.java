@@ -3,6 +3,7 @@ package com.bodhi.school.services;
 import com.bodhi.school.model.School;
 import com.bodhi.school.repository.SchoolRepository;
 import org.jooq.Record;
+import org.keycloak.admin.client.Keycloak;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -10,10 +11,16 @@ import java.util.UUID;
 
 @Service
 public class SchoolService {
+
+    private final Keycloak keycloakAdminClient;
+
+
     private final SchoolRepository schoolRepository;
-    public SchoolService(SchoolRepository schoolRepository) {
+    public SchoolService(Keycloak keycloakAdminClient, SchoolRepository schoolRepository) {
+        this.keycloakAdminClient = keycloakAdminClient;
         this.schoolRepository = schoolRepository;
     }
+
 
     public School getById(String id) throws Exception {
         Record record = schoolRepository.findById(id)

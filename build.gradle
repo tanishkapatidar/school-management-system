@@ -48,6 +48,15 @@ dependencies {
 	implementation group: 'org.jooq', name: 'jooq', version: '3.19.6'
 	implementation group: 'org.jooq', name: 'jooq-meta', version: '3.19.6'
 
+	// https://mvnrepository.com/artifact/org.keycloak/keycloak-admin-client
+	implementation 'org.keycloak:keycloak-admin-client:26.0.3'
+	// https://mvnrepository.com/artifact/org.keycloak/keycloak-spring-boot-starter
+	implementation 'org.keycloak:keycloak-spring-boot-starter:25.0.3'
+//	implementation 'org.keycloak:keycloak-spring-boot-starter:25.0.3'
+
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+	implementation 'org.springframework.boot:spring-boot-starter-integration'
 
 }
 
