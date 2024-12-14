@@ -48,6 +48,12 @@ public class ResultRepository {
         );
     }
 
+    public Record findByExamIdAndStudentId(String examId, String studentId) {
+        return dslContext.selectFrom(getResultTable())
+                        .where(field("exam_id").eq(examId).and(field("student_id").eq(studentId)))
+                        .fetchOne();
+    }
+
     public int deleteById(String id) {
         return dslContext.deleteFrom(getResultTable())
                 .where(field("id").eq(id))

@@ -5,6 +5,8 @@ import com.bodhi.school.services.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping( "/students")
 public class StudentController {
@@ -18,6 +20,11 @@ public class StudentController {
     @GetMapping("/{id}")
     public Student getStudentById(@PathVariable("id") String id) throws Exception {
         return studentService.getById(id);
+    }
+
+    @GetMapping("/")
+    public List<Student> getAllStudent(@RequestParam("std") String std, @RequestParam("section") String section ) throws Exception {
+        return studentService.getAllStudentsByGradeAndSection(std, section);
     }
 
     @PostMapping("/")

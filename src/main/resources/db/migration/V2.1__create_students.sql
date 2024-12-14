@@ -8,6 +8,7 @@ Create Table IF NOT EXISTS bodhi.students (
     date_of_birth date,
     gender character (255),
     email_id character (255),
+    std_id character (255),
     CONSTRAINT students_primary_key PRIMARY KEY (id)
 );
 

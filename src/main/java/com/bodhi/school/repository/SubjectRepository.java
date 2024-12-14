@@ -6,10 +6,7 @@ import org.jooq.*;
 import org.jooq.Record;
 import org.springframework.stereotype.Component;
 
-import java.util.Collection;
-import java.util.Map;
 import java.util.Optional;
-import java.util.UUID;
 
 import static org.jooq.impl.DSL.*;
 
@@ -27,7 +24,7 @@ public class SubjectRepository {
                 .set(field("id"),subject.getId())
                 .set(field("sub_name"), subject.getSub_name())
                 .set(field("teacher_name"), subject.getTeacher_name())
-                .set(field("class_id"),subject.getClass_id())
+                .set(field("std_id"),subject.getStd_id())
                 .execute();
         return subject;
     }
@@ -37,7 +34,7 @@ public class SubjectRepository {
                 .set(field("id"),subject.getId())
                 .set(field("sub_name"), subject.getSub_name())
                 .set(field("teacher_name"), subject.getTeacher_name())
-                .set(field("class_id"),subject.getClass_id())
+                .set(field("std_id"),subject.getStd_id())
                 .where(field("id").eq(subject.getId()))
                 .returning(field("*"))
                 .fetchOneInto(Subject.class);
@@ -49,6 +46,13 @@ public class SubjectRepository {
                         .where(field("id").eq(id))
                         .fetchOne()
         );
+    }
+
+    public Result<Record> findByStdId(String stdId) {
+        return dslContext.selectFrom(getSubjectTable())
+                        .where(field("std_id").eq(stdId))
+                        .fetch();
+
     }
 
     public int deleteById(String id) {

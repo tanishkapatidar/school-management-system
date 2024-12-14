@@ -57,5 +57,13 @@ public class StandardRepository {
                 .where(field("id").eq(id))
                 .execute();
     }
+
+    public Optional<Record> findByGradeAndSection(String grade, String section) {
+        return Optional.ofNullable(dslContext.selectFrom(getStandardTable())
+                .where(field("grade").eq(grade))
+                .and(field("section").eq(section))
+                .fetchOne()
+        );
+    }
 }
 

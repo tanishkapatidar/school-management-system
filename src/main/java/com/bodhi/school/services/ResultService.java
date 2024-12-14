@@ -21,6 +21,11 @@ public class ResultService {
         return record.into(Result.class);
     }
 
+    public Result getByExamIdAndStudentId(String examId, String studentId) {
+        Record record = resultRepository.findByExamIdAndStudentId(examId,studentId);
+        return record.into(Result.class);
+    }
+
     public Result create(Result school) throws Exception {
         try{
             school.setId(UUID.randomUUID().toString());

@@ -51,6 +51,12 @@ public class ExamRepository {
         );
     }
 
+    public Result<Record> findBySubjectId(String subjectId) {
+        return dslContext.selectFrom(getExamTable())
+                .where(field("subject_id").eq(subjectId))
+                .fetch();
+    }
+
     public int deleteById(String id) {
         return dslContext.deleteFrom(getExamTable())
                 .where(field("id").eq(id))

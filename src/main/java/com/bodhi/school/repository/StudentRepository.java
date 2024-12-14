@@ -6,10 +6,7 @@ import org.jooq.*;
 import org.jooq.Record;
 import org.springframework.stereotype.Component;
 
-import java.util.Collection;
-import java.util.Map;
 import java.util.Optional;
-import java.util.UUID;
 
 import static org.jooq.impl.DSL.*;
 
@@ -33,6 +30,7 @@ public class StudentRepository {
                 .set(field("date_of_birth"),student.getDate_of_birth())
                 .set(field("gender"),student.getGender())
                 .set(field("email_id"),student.getEmail_id())
+                .set(field("std_id"),student.getStd_id())
 
                 .execute();
         return student;
@@ -49,6 +47,7 @@ public class StudentRepository {
                 .set(field("date_of_birth"),student.getDate_of_birth())
                 .set(field("gender"),student.getGender())
                 .set(field("email_id"),student.getEmail_id())
+                .set(field("std_id"),student.getStd_id())
                 .where(field("id").eq(student.getId()))
                 .returning(field("*"))
                 .fetchOneInto(Student.class);
@@ -66,5 +65,11 @@ public class StudentRepository {
         return dslContext.deleteFrom(getStudentTable())
                 .where(field("id").eq(id))
                 .execute();
+    }
+
+    public Result<Record> findAll(String stdId){
+        return dslContext.selectFrom(getStudentTable())
+                .where(field("std_id").eq(stdId))
+                .fetch();
     }
 }

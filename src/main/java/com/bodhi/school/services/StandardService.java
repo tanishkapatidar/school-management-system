@@ -29,5 +29,13 @@ public class StandardService {
             throw  new Exception("Unable to save standard with id %s ".formatted(standard.getId()));
         }
     }
+
+    public Standard findByGradeAndSection(String grade, String section) throws Exception {
+        Record record =  this.standardRepository.findByGradeAndSection(grade, section)
+                .orElseThrow(() ->
+                        new Exception("Unable to fetch standard with grade %s and section %s".formatted(grade, section))
+                );
+        return record.into(Standard.class);
+    }
 }
 
